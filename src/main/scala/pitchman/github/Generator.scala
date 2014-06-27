@@ -1,6 +1,18 @@
+package pitchman.github
 import java.io.File
+import pitchman.model.MarkDown
 
-object BasicGithubReleaseNotes extends App {
+/**
+ * Execute this to generate the release notes on the console.
+ * You need git installed.
+ *
+ * {{
+ *    sbt
+ *    runMain pitchman.github.Generator -gh sbt/sbt-native-packager -p v0.7.2-RC1 -n v0.7.2-RC2 -l /home/user/git/sbt-native-packager
+ * }}
+ */
+object Generator extends App {
+
   val GhProjectString = new util.matching.Regex("([^/]+)/(.+)")
 
   case class Config(project: GithubProject, previousTag: String, nextTag: String, location: File)
@@ -42,10 +54,9 @@ object BasicGithubReleaseNotes extends App {
   def generateNotes(config: Config) {
     implicit val language = MarkDown
 
-    val info = new GitInfo(config.location, config.previousTag, config.nextTag, config.project, GithubIssueDetector(config.project))
+    val info = new ReleaseNotes(config.location, config.previousTag, config.nextTag, config.project)
     println(info.renderFixedIssues)
     println(info.renderPullRequests)
-    //println(info.renderCommitList)
     println(info.renderCommitterList)
   }
 }

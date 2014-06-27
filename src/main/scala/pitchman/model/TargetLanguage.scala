@@ -1,3 +1,5 @@
+package pitchman.model
+
 sealed trait TargetLanguage {
   def createHyperLink(link: String, content: String): String
   def blankLine(): String
@@ -36,7 +38,7 @@ $firstColumn | $secondColumn | $thirdColumn
 
   def escapeHtml(s: String): String = Html.htmlEncode(s).flatMap {
     case '|' => "&#124;" // it would destroy tables!
-    case c => c.toString
+    case c   => c.toString
   }
 }
 case object Html extends TargetLanguage {

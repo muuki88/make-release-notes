@@ -8,8 +8,9 @@ libraryDependencies ++= Seq(
     "org.pegdown" % "pegdown" % "1.2.0",
     "org.apache.commons" % "commons-lang3" % "3.1",
     "com.github.scopt" %% "scopt" % "3.2.0",
+    "com.typesafe.play" %% "play-ws" % "2.3.0",   
     // tests
-    "org.scalatest" % "scalatest_2.11" % "2.2.0" % "test"
+    "org.scalatest" %% "scalatest" % "2.2.0" % "test"
 )
 
 {

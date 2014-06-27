@@ -44,6 +44,7 @@ object BasicGithubReleaseNotes extends App {
 
     val info = new GitInfo(config.location, config.previousTag, config.nextTag, config.project, GithubIssueDetector(config.project))
     println(info.renderFixedIssues)
+    println(info.renderPullRequests)
     //println(info.renderCommitList)
     println(info.renderCommitterList)
   }

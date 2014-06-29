@@ -1,1 +1,200 @@
-My GitHub Page
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Release Note Generator - Pitchman &mdash; sbt-native-packager 0.2-ae347623f8a6ae935a5f6aa9d0358a305d3ba50d documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/yeti/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2-ae347623f8a6ae935a5f6aa9d0358a305d3ba50d',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="sbt-native-packager 0.2-ae347623f8a6ae935a5f6aa9d0358a305d3ba50d documentation" href="#" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          sbt-native-packager</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.2-ae347623f8a6ae935a5f6aa9d0358a305d3ba50d</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Release Note Generator - Pitchman</a><ul>
+<li><a class="reference internal" href="#sbt-plugin">SBT Plugin</a><ul>
+<li><a class="reference internal" href="#settings">Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running">Running</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/index.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="release-note-generator-pitchman">
+<h1>Release Note Generator - Pitchman<a class="headerlink" href="#release-note-generator-pitchman" title="Permalink to this headline">¶</a></h1>
+<p>This projects helps you generating release notes for the awesome
+[Github Release Notes](<a class="reference external" href="https://github.com/blog/1547-release-your-software">https://github.com/blog/1547-release-your-software</a>) feature.</p>
+<div class="section" id="sbt-plugin">
+<h2>SBT Plugin<a class="headerlink" href="#sbt-plugin" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">addSbtPlugin</span><span class="o">(</span><span class="s">&quot;de.mukis&quot;</span> <span class="o">%</span> <span class="s">&quot;pitchman-release-notes-generator&quot;</span> <span class="o">%</span> <span class="s">&quot;0.1&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Thanks to autoplugins you can now just run</p>
+<div class="highlight-bash"><div class="highlight"><pre>releaseNotes v1.0 v2.0
+</pre></div>
+</div>
+<p>to generate release notes in your target folder.</p>
+<div class="section" id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">releaseNotesLanguage</span></tt></dt>
+<dd>by default <cite>MarkDown</cite></dd>
+<dt><tt class="docutils literal"><span class="pre">releasenotesFilename</span></tt></dt>
+<dd>by default <cite>releaseNotes.md</cite></dd>
+<dt><tt class="docutils literal"><span class="pre">releaseNotesPreviousTag</span></tt></dt>
+<dd>set by the <cite>releaseNotes</cite> command</dd>
+<dt><tt class="docutils literal"><span class="pre">releaseNotesCurrentTag</span></tt></dt>
+<dd>set by the <cite>releaseNotes</cite> command</dd>
+<dt><tt class="docutils literal"><span class="pre">renderCommiters</span></tt></dt>
+<dd>should a commiter list be rendered. <cite>true</cite> by default</dd>
+<dt><tt class="docutils literal"><span class="pre">renderPullRequests</span></tt></dt>
+<dd>should a pull request list be rendered <cite>true</cite> by default</dd>
+<dt><tt class="docutils literal"><span class="pre">renderFixedIssues</span></tt></dt>
+<dd>should a fix issues list be rendered <cite>true</cite> by default</dd>
+</dl>
+</div></blockquote>
+<p>Furthermore you can define a few more things in the <cite>Pitchman</cite> scope.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">target</span> <span class="pre">in</span> <span class="pre">Pitchman</span></tt></dt>
+<dd>Where to put the releaseNotes file. By default <cite>target in Compile</cite></dd>
+<dt><tt class="docutils literal"><span class="pre">orgnization</span> <span class="pre">in</span> <span class="pre">Pitchman</span></tt></dt>
+<dd>Used as github user, or organization in github/<strong>user</strong>/repo. By default <cite>organization in Compile</cite></dd>
+<dt><tt class="docutils literal"><span class="pre">name</span> <span class="pre">in</span> <span class="pre">Pitchman</span></tt></dt>
+<dd>Used as github project name in github/user/<strong>repo</strong>. By default <cite>name in Compile</cite></dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="running">
+<h2>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>sbt -Dfile.encoding<span class="o">=</span>UTF-8 console
+runMain pitchman.github.Generator -gh user/repo -p v1.0 -n v1.1 -l /home/user/git/repo
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014 sbt-native-packager team.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

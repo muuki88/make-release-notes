@@ -10,7 +10,6 @@ import java.nio.charset.Charset
 
 object PitchmanPlugin extends AutoPlugin {
 
-
   object autoImport {
     val Pitchman = config("pitchman")
 

@@ -1,8 +1,19 @@
-name := "scala-release-note-generator"
+import scalariform.formatter.preferences._
 
-version := "1.0"
+name := "pitchman-release-notes-generator"
 
-scalaVersion := "2.10.3"
+scalaVersion in Global := "2.11.1"
+
+crossScalaVersions := Seq("2.10.3", "2.11.1")
+
+sbtVersion in Global := {
+  scalaBinaryVersion.value match {
+    case "2.10" | "2.11" => "0.13.5"
+    case "2.9.2" => "0.12.4"
+  }
+}
+
+sbtPlugin := true
 
 libraryDependencies ++= Seq(
     "org.pegdown" % "pegdown" % "1.2.0",
@@ -17,3 +28,49 @@ libraryDependencies ++= Seq(
   require(sys.props("file.encoding") == "UTF-8", "Please rerun with -Dfile.encoding=UTF-8")
   Nil
 }
+
+scalacOptions in Compile += "-deprecation"
+
+site.settings
+
+com.typesafe.sbt.SbtSite.SiteKeys.siteMappings <+= (baseDirectory) map { dir => 
+  val nojekyll = dir / "src" / "site" / ".nojekyll"
+  nojekyll -> ".nojekyll"
+}
+
+site.sphinxSupport()
+
+ghpages.settings
+
+git.remoteRepo := "git@github.com:muuki88/make-release-notes.git"
+
+publishMavenStyle := false
+
+scriptedSettings
+
+scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
+
+scalariformSettings
+
+ScalariformKeys.preferences := ScalariformKeys.preferences.value
+  .setPreference(AlignParameters, false)
+  .setPreference(FormatXml, true)
+  .setPreference(SpaceInsideBrackets, false)
+  .setPreference(IndentWithTabs, false)
+  .setPreference(SpaceInsideParentheses, false)
+  .setPreference(MultilineScaladocCommentsStartOnFirstLine, false)
+  .setPreference(AlignSingleLineCaseStatements, true)
+  .setPreference(CompactStringConcatenation, false)
+  .setPreference(PlaceScaladocAsterisksBeneathSecondAsterisk, false)
+  .setPreference(IndentPackageBlocks, true)
+  .setPreference(CompactControlReadability, false)
+  .setPreference(SpacesWithinPatternBinders, true)
+  .setPreference(AlignSingleLineCaseStatements.MaxArrowIndent, 40)
+  .setPreference(DoubleIndentClassDeclaration, false)
+  .setPreference(PreserveSpaceBeforeArguments, false)
+  .setPreference(SpaceBeforeColon, false)
+  .setPreference(RewriteArrowSymbols, false)
+  .setPreference(IndentLocalDefs, false)
+  .setPreference(IndentSpaces, 2)
+  //.setPreference(AreserveDanglingCloseParenthesis, true)
+

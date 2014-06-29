@@ -2,9 +2,11 @@ import scalariform.formatter.preferences._
 
 name := "pitchman-release-notes-generator"
 
-scalaVersion in Global := "2.11.1"
+organization := "de.mukis"
 
-crossScalaVersions := Seq("2.10.3", "2.11.1")
+scalaVersion in Global := "2.10.4"
+
+//crossScalaVersions := Seq("2.10.4", "2.11.1")
 
 sbtVersion in Global := {
   scalaBinaryVersion.value match {

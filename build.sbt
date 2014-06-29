@@ -46,12 +46,39 @@ ghpages.settings
 
 git.remoteRepo := "git@github.com:muuki88/make-release-notes.git"
 
-publishMavenStyle := false
+licenses := Seq("Apache License v2" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-scriptedSettings
+homepage := Some(url("http://muuki88.github.io/make-release-notes/"))
 
-scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
+// Sonatype settings
+publishMavenStyle := true
 
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+pomIncludeRepository := { _ => false }
+
+pomExtra := (
+  <scm>
+    <url>git@github.com:muuki88/make-release-notes.git</url>
+    <connection>scm:git:git@github.com:muuki88/make-release-notes.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>muuki88</id>
+      <name>Nepomuk Seiler</name>
+      <url>http://mukis.de</url>
+    </developer>
+  </developers>)
+  
+Release.settings
+  
+// Code styling
 scalariformSettings
 
 ScalariformKeys.preferences := ScalariformKeys.preferences.value

@@ -42,6 +42,3 @@ Furthermore you can define a few more things in the `Pitchman` scope.
 runMain pitchman.github.Generator -gh user/repo -p v1.0 -n v1.1 -l /home/user/git/repo
 ```
 
-## Contributing
-
-Feel free to improve. Make sure to sign the Typesafe CLA.

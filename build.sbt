@@ -6,7 +6,7 @@ organization := "de.mukis"
 
 scalaVersion in Global := "2.10.4"
 
-//crossScalaVersions := Seq("2.10.4", "2.11.1")
+crossScalaVersions := Seq("2.10.4", "2.11.1")
 
 sbtVersion in Global := {
   scalaBinaryVersion.value match {

@@ -103,7 +103,7 @@ class ReleaseNotes(
     targetLanguage.createHyperLink(s"https://github.com/${project.user}/${project.project}/commit/${sha}", sha)
 
   private def pullRequestLink(num: Int) =
-    targetLanguage.createHyperLink(s"https://github.com/${project.user}/${project.project}/commit/${num}", s"#${num}")
+    targetLanguage.createHyperLink(s"https://github.com/${project.user}/${project.project}/pull/${num}", s"#${num}")
 
   private def blankLine(): String = targetLanguage.blankLine()
   private def header4(msg: String): String = targetLanguage.header4(msg)

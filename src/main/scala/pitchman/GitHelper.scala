@@ -4,7 +4,7 @@ import pitchman.model._
 
 object GitHelper {
 
-  val Sha = "([a-f0-9]{7} )(.*)".r
+  val Sha = "([a-f0-9]{7,16} )(.*)".r
 
   def processGitCommits(gitDir: java.io.File, previousTag: String, currentTag: String): IndexedSeq[Commit] = {
     processGitCommits(gitDir, previousTag, currentTag, true) ++ processGitCommits(gitDir, previousTag, currentTag, false)

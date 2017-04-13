@@ -4,16 +4,7 @@ name := "pitchman-release-notes-generator"
 
 organization := "de.mukis"
 
-scalaVersion in Global := "2.10.4"
-
-// crossScalaVersions := Seq("2.10.4", "2.11.1")
-
-sbtVersion in Global := {
-  scalaBinaryVersion.value match {
-    case "2.10" | "2.11" => "0.13.5"
-    case "2.9.2" => "0.12.4"
-  }
-}
+scalaVersion in Global := "2.11.7"
 
 sbtPlugin := true
 
@@ -21,7 +12,7 @@ libraryDependencies ++= Seq(
     "org.pegdown" % "pegdown" % "1.2.0",
     "org.apache.commons" % "commons-lang3" % "3.1",
     "com.github.scopt" %% "scopt" % "3.2.0",
-    "com.typesafe.play" %% "play-ws" % "2.3.0",   
+    "com.typesafe.play" %% "play-ws" % "2.3.0",
     // tests
     "org.scalatest" %% "scalatest" % "2.2.0" % "test"
 )
@@ -35,7 +26,7 @@ scalacOptions in Compile += "-deprecation"
 
 site.settings
 
-com.typesafe.sbt.SbtSite.SiteKeys.siteMappings <+= (baseDirectory) map { dir => 
+com.typesafe.sbt.SbtSite.SiteKeys.siteMappings <+= (baseDirectory) map { dir =>
   val nojekyll = dir / "src" / "site" / ".nojekyll"
   nojekyll -> ".nojekyll"
 }
@@ -75,9 +66,9 @@ pomExtra := (
       <url>http://mukis.de</url>
     </developer>
   </developers>)
-  
+
 Release.settings
-  
+
 // Code styling
 scalariformSettings
 
@@ -102,4 +93,3 @@ ScalariformKeys.preferences := ScalariformKeys.preferences.value
   .setPreference(IndentLocalDefs, false)
   .setPreference(IndentSpaces, 2)
   //.setPreference(AreserveDanglingCloseParenthesis, true)
-
